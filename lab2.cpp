@@ -18,7 +18,7 @@ int main()
     int n;
     int k;
     int j;
-    while (choise != 12) {
+    while (choise != 14) {
         cout << "choose the action" << endl;
         cout << "1 - open book" << endl;
         cout << "2 - close book" << endl;
@@ -31,19 +31,21 @@ int main()
         cout << "9 - rename n k cell from j sheet" << endl;
         cout << "10 - put value in the n k cell from j sheet" << endl;
         cout << "11 - get value from the n k cell from j sheet" << endl;
-        cout << "12 - exit this part of menu" << endl;
+        cout << "12 - save book to the disk" << endl;
+        cout << "13 - get book from the disk" << endl;
+        cout << "14 - exit this part of menu" << endl;
         cin >> choise;
         switch (choise) {
         case 1:
             b.open();
-            cout << b << endl;            
+            cout << b << endl;
             break;
         case 2:
             b.close();
             cout << b << endl;
             break;
         case 3:
-            cout << "enter the name of the book without spaces:" << endl;            
+            cout << "enter the name of the book without spaces:" << endl;
             name_enterer(ch, new_name_temp, count, new_name);
             b.change_name(count, new_name);
             cout << b << endl;
@@ -108,6 +110,14 @@ int main()
             name_enterer(ch, new_name_temp, count, new_name);
             b.get_content()[j][n][k].get_value();
             cout << b << endl;
+            break;
+
+        case 12:
+            b.save_to_the_disk();
+            break;
+
+        case 13:
+            b.get_from_the_disk();
             break;
         }
     }
